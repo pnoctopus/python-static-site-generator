@@ -21,7 +21,7 @@ class Content(Mapping):
 
     @property
     def body(self):
-        returns self.data["content"]
+        return self.data["content"]
 
     @property
     def type(self):
