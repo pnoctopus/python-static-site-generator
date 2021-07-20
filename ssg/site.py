@@ -1,4 +1,5 @@
 from pathlib import Path, PurePath
+import sys
 
 
 class Site:
@@ -32,6 +33,10 @@ class Site:
             parser.parse(path, self.source, self.dest)
         else:
             self.error(
-                "No parser for the '{}' extension, file skipped!".format(
+                "No parser for the '{}' extension, file skipped!".__format__(
                     path.suffix)
             )
+
+    @staticmethod
+    def error(message):
+        sys.stderr.write("\x1b[1;31m{}\n").__format__(message)
